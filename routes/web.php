@@ -1,7 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Product\ProductController;
 
 Route::get('/', [ArticleController::class, 'index']);
@@ -34,3 +36,6 @@ Route::get('/articles/delete/{id}', [
     ArticleController::class,
     'delete'
 ]);
+
+Route::post('/comments/add', [CommentController::class, 'add']);
+Route::get('/comments/delete/{id}', [CommentController::class, 'delete']);
